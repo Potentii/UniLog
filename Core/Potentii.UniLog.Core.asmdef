@@ -1,0 +1,17 @@
+{
+    "name": "Potentii.UniLog.Core",
+    "rootNamespace": "",
+    "references": [
+        "Potentii.UniLog.Base",
+        "Potentii.UniLog.Transports.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
