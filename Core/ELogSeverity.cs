@@ -1,6 +1,6 @@
 using System;
 
-namespace Assets.Potentii.UniLog.Base
+namespace Potentii.UniLog.Core
 {
     [Serializable]
     public enum ELogSeverity : byte

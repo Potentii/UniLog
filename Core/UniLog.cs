@@ -1,6 +1,4 @@
 using System;
-using Assets.Potentii.UniLog.Transports.Core;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 namespace Potentii.UniLog.Core
@@ -8,9 +6,8 @@ namespace Potentii.UniLog.Core
     public static class UniLog
     {
         private static readonly ILogger Logger = new DefaultLogger();
-        
-        
-        
+
+
         public static void Debug(Component ctx, string code, string message, params (string, object)[] data)
         {
             Logger.Debug(ctx, code, message, data);
@@ -43,14 +40,23 @@ namespace Potentii.UniLog.Core
 
         
         
-        public static void RegisterConverter(JsonConverter converter)
+        
+        public static void SetFormatter(IUniLogFormatter formatter)
+        {
+            Logger.SetFormatter(formatter);
+        }
+
+        public static void RegisterConverter<T>(IUniLogConverter<T> converter)
         {
             Logger.RegisterConverter(converter);
         }
         
-        public static void RegisterTransport(ILogTransport transport)
+        public static void RegisterTransport(IUniLogTransport transport)
         {
             Logger.RegisterTransport(transport);
         }
+        
+        
+        
     }
 }

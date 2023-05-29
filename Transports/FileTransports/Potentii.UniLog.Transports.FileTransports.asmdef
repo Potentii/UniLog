@@ -2,8 +2,7 @@
     "name": "Potentii.UniLog.Transports.FileTransports",
     "rootNamespace": "",
     "references": [
-        "Potentii.UniLog.Base",
-        "Potentii.UniLog.Transports.Core"
+        "Potentii.UniLog.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

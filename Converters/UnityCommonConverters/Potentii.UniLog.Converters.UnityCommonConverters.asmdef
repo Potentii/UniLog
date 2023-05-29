@@ -1,7 +1,9 @@
 {
-    "name": "Potentii.UniLog.Base",
+    "name": "Potentii.UniLog.Converters.UnityCommonConverters",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "Potentii.UniLog.Core"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -10,5 +12,5 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": true
+    "noEngineReferences": false
 }

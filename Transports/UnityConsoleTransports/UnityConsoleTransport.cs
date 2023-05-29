@@ -1,9 +1,8 @@
-using Assets.Potentii.UniLog.Base;
-using Assets.Potentii.UniLog.Transports.Core;
+using Potentii.UniLog.Core;
 
 namespace Potentii.UniLog.Transports.UnityConsoleTransports
 {
-    public class UnityConsoleTransport : ILogTransport
+    public class UnityConsoleTransport : IUniLogTransport
     {
         /// <inheritdoc />
         public void Transport(ELogSeverity severity, string entry)

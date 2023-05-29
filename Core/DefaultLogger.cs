@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Potentii.UniLog.Base;
-using Assets.Potentii.UniLog.Transports.Core;
 using JetBrains.Annotations;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
@@ -12,8 +10,9 @@ namespace Potentii.UniLog.Core
     public class DefaultLogger : ILogger
     {
         
-        private readonly List<JsonConverter> _converters = new();
-        private readonly List<ILogTransport> _transports = new();
+        private IUniLogFormatter _formatter;
+        private readonly List<JsonConverter> _newtonsoftConverters = new();
+        private readonly List<IUniLogTransport> _transports = new();
 
 
         
@@ -76,7 +75,7 @@ namespace Potentii.UniLog.Core
                     new JsonSerializerSettings
                     {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                        Converters = _converters,
+                        Converters = _newtonsoftConverters,
                         Formatting = Formatting.Indented, // TODO disable on production
                         DateFormatHandling = DateFormatHandling.IsoDateFormat,
                     });
@@ -108,16 +107,50 @@ namespace Potentii.UniLog.Core
         
         
 
-
-
-        public void RegisterConverter(JsonConverter converter)
+        public void SetFormatter(IUniLogFormatter formatter)
         {
-            _converters.Add(converter);
+            _formatter = formatter;
+        }
+
+        public void RegisterConverter<T>(IUniLogConverter<T> converter)
+        {
+            _newtonsoftConverters.Add(new WrapperConverter<T>(converter));
         }
         
-        public void RegisterTransport(ILogTransport transport)
+        public void RegisterTransport(IUniLogTransport transport)
         {
             _transports.Add(transport);
         }
+        
+        
+        private class WrapperConverter<T> : JsonConverter<T>
+        {
+            private readonly IUniLogConverter<T> _baseConverter;
+
+            public WrapperConverter(IUniLogConverter<T> baseConverter)
+            {
+                _baseConverter = baseConverter;
+            }
+            
+            
+            /// <inheritdoc />
+            public override void WriteJson(JsonWriter writer, T? value, JsonSerializer serializer)
+            {
+                if(value == null)
+                {
+                    writer.WriteNull();
+                    return;
+                }
+                
+                serializer.Serialize(writer, _baseConverter.Convert(value));
+            }
+        
+            /// <inheritdoc />
+            public override T? ReadJson(JsonReader reader, Type objectType, T? existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        
     }
 }

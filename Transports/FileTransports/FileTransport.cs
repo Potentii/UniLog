@@ -1,11 +1,10 @@
 using System;
 using System.IO;
-using Assets.Potentii.UniLog.Base;
-using Assets.Potentii.UniLog.Transports.Core;
+using Potentii.UniLog.Core;
 
-namespace Assets.Potentii.UniLog.Transports.FileTransports
+namespace Potentii.UniLog.Transports.FileTransports
 {
-    public class FileTransport : ILogTransport
+    public class FileTransport : IUniLogTransport
     {
         public string Directory { get; }
 
