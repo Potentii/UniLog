@@ -1,0 +1,23 @@
+﻿{
+  "name": "Potentii.UniLog.Tests.Runtime",
+  "rootNamespace": "",
+  "references": [
+    "Potentii.UniLog.Core",
+    "Potentii.UniLog.Transports.UnityConsoleTransports",
+    "UnityEngine.TestRunner",
+    "UnityEditor.TestRunner"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

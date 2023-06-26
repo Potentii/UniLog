@@ -1,10 +1,7 @@
 {
     "name": "Potentii.UniLog.Core",
     "rootNamespace": "",
-    "references": [
-        "Potentii.UniLog.Base",
-        "Potentii.UniLog.Transports.Core"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

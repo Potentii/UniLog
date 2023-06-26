@@ -2,7 +2,7 @@
     "name": "Potentii.UniLog.Tests.Editor",
     "rootNamespace": "",
     "references": [
-        "Potentii.UniLog.Transports.Core",
+        "Potentii.UniLog.Transports.UnityConsoleTransports",
         "Potentii.UniLog.Core",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"

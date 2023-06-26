@@ -1,7 +1,7 @@
 {
 	"name": "unilog",
 	"displayName": "UniLog",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"unity": "2021.2",
 	"author": {
 		"name": "Potentii",
@@ -18,5 +18,8 @@
 		"unity",
 		"potentii"
 	],
-	"description": "Logger for Unity"
+	"description": "Logger for Unity",
+	"dependencies": {
+		"com.unity.nuget.newtonsoft-json": "3.2.1"
+	}
 }

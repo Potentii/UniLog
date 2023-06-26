@@ -1,10 +1,11 @@
 ﻿using NUnit.Framework;
 using Potentii.UniLog.Transports.UnityConsoleTransports;
 
-namespace Potentii.UniLog.Tests.Editor.Core
+namespace Potentii.UniLog.Tests.Runtime.Core
 {
     public class DefaultLoggerTest
     {
+
         
         
         [Test]
